@@ -1,19 +1,51 @@
 import java.util.ArrayList;
 import java.util.List;
-
+//TODO Añadir imagen
 public class Detective extends Personajes {
     private List<Objeto> inventario;
+    private boolean tieneBala;
     public Detective(String nombre, String imagen, String descripcion) {
-        super(nombre="Allyson Jayce", imagen, descripcion="Detective");
-           this.inventario = new ArrayList<>();
+        super(nombre = "Allyson Jayce", imagen, descripcion = "Detective");
+        this.inventario = new ArrayList<>();
+        this.tieneBala = false;
     }
     //METODOS:
 
     public void cogerObjeto(Objeto objeto) {
-        // Añadir el objeto al inventario
-        inventario.add(objeto);
-        System.out.println(getNombre() + " ha cogido " + objeto.getNombreobj());
+        if (objeto.isDisponible()) {
+            inventario.add(objeto);
+            System.out.println(getNombre() + " ha cogido " + objeto.getNombreobj());
+        }
+        else{
+            System.out.println("No puedes coger " + objeto.getNombreobj());
+        }
     }
-}
+    public void mostrarInv(){
+        System.out.println("Inventario");
+            if(inventario.isEmpty()){
+                System.out.println("Tu inventario esta vacio :(");
+            } else{
+                for(Objeto obje : inventario){
+                    System.out.println("- " + obje.getNombreobj());
+                }
+            }
+    }
+    public void UsarObjeto (String nomObjeto){
+        Objeto objeto ;
+    }
+
+    //Metodos propios de los objetos
+    private void dispararPistola(Objeto objeto) {
+        if (objeto instanceof Pistola) {
+            Pistola pistola = (Pistola) objeto;
+            if (pistola.tieneBala()) {
+                System.out.println("Disparas la pistola.");
+                pistola.setTieneBala(false);
+            } else {
+                System.out.println("La pistola no tiene balas.");
+            }
+        }
+    }
+
 
 
