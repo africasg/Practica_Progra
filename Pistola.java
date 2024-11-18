@@ -1,17 +1,17 @@
 public class Pistola extends Objeto {
 
-    private boolean tienebala;
+    private boolean tieneBala;
 
-    public Pistola(String nombreobj, String desc, boolean disponible, boolean tienebala) {
+    public Pistola(String nombreobj, String desc, boolean disponible, boolean tieneBala) {
         super(nombreobj, desc, disponible);
-        this.tienebala = tienebala;
+        this.tieneBala = tieneBala;
     }
 
-    public boolean isTienebala() {
-        return tienebala; //Saber si tiene bala o no
+    public boolean tieneBala() {
+        return tieneBala; //Saber si tiene bala o no
     }
 
-    public void setTienebala(boolean tienebala) {
-        this.tienebala = tienebala;
+    public void setTieneBala(boolean tieneBala) {
+        this.tieneBala = tieneBala;
     }
 }
