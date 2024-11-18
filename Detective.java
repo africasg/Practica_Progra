@@ -4,8 +4,9 @@ import java.util.List;
 public class Detective extends Personajes {
     private List<Objeto> inventario;
     private boolean tieneBala;
+
     public Detective(String nombre, String imagen, String descripcion) {
-        super(nombre = "Allyson Jayce", imagen, descripcion = "Detective");
+        super("Allyson Jayce", imagen, "Detective");
         this.inventario = new ArrayList<>();
         this.tieneBala = false;
     }
@@ -15,37 +16,36 @@ public class Detective extends Personajes {
         if (objeto.isDisponible()) {
             inventario.add(objeto);
             System.out.println(getNombre() + " ha cogido " + objeto.getNombreobj());
-        }
-        else{
+        } else {
             System.out.println("No puedes coger " + objeto.getNombreobj());
         }
     }
-    public void mostrarInv(){
-        System.out.println("Inventario");
-            if(inventario.isEmpty()){
-                System.out.println("Tu inventario esta vacio :(");
-            } else{
-                for(Objeto obje : inventario){
-                    System.out.println("- " + obje.getNombreobj());
-                }
-            }
-    }
-    public void UsarObjeto (String nomObjeto){
-        Objeto objeto ;
-    }
 
-    //Metodos propios de los objetos
-    private void dispararPistola(Objeto objeto) {
-        if (objeto instanceof Pistola) {
-            Pistola pistola = (Pistola) objeto;
-            if (pistola.tieneBala()) {
-                System.out.println("Disparas la pistola.");
-                pistola.setTieneBala(false);
-            } else {
-                System.out.println("La pistola no tiene balas.");
+    public void mostrarInv() {
+        System.out.println("Inventario");
+        if (inventario.isEmpty()) {
+            System.out.println("Tu inventario esta vacio :(");
+        } else {
+            for (Objeto obje : inventario) {
+                System.out.println("- " + obje.getNombreobj());
             }
         }
     }
+
+    public void UsarObjeto(String nomObjeto) {
+        Objeto objeto;
+    }
+
+    //Metodos propios de los objetos
+    private void dispararPistola(Pistola pistola) {
+        if (pistola.tieneBala()) {
+            System.out.println("Disparas la pistola.");
+            pistola.setTieneBala(false);
+        } else {
+            System.out.println("La pistola no tiene balas.");
+        }
+    }
+}
 
 
 
